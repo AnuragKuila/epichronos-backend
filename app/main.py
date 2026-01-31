@@ -1,4 +1,3 @@
-from typing import Dict, Any
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -17,7 +16,6 @@ app = FastAPI(
     openapi_url="/openapi.json"
 )
 
-
 # -----------------------------
 # CORS CONFIGURATION
 # -----------------------------
@@ -29,7 +27,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 # -----------------------------
 # Routes
 # -----------------------------
@@ -37,9 +34,6 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    """
-    Health check endpoint
-    """
     return {"status": "EpiChronos backend running"}
 
 
