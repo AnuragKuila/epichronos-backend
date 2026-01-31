@@ -32,12 +32,13 @@ methylation_features = [
 
 
 def risk_category(score: float) -> str:
-    if score < 0.4:
+    if score < 0.25:
         return "Low"
-    elif score < 0.7:
+    elif score < 0.55:
         return "Moderate"
     else:
         return "High"
+
 
 # -------------------------------------------------
 # Main inference function
