@@ -43,7 +43,7 @@ def root():
     return {"status": "EpiChronos backend running"}
 
 
-@app.post("/analyze")
-def analyze(data: Dict[str, Any]):
+@app.post("/analyze", response_model=AnalysisResult)
+def analyze(data: AnalysisRequest):
     result = predict_risk(data)
-    return result
+    return AnalysisResult(**result)
