@@ -10,8 +10,12 @@ from app.ml_interface import predict_risk
 app = FastAPI(
     title="EpiChronos Backend",
     version="1.0.0",
-    description="Backend API for cancer risk estimation"
+    description="Backend API for cancer risk estimation",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
 )
+
 
 # -----------------------------
 # CORS CONFIGURATION
