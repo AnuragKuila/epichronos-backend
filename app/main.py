@@ -1,3 +1,4 @@
+from typing import Dict, Any
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -42,11 +43,7 @@ def root():
     return {"status": "EpiChronos backend running"}
 
 
-@app.post("/analyze", response_model=AnalysisResult)
-def analyze(data: AnalysisRequest):
-    """
-    Receives validated patient + biomarker data
-    and sends it directly to the ML interface.
-    """
+@app.post("/analyze")
+def analyze(data: Dict[str, Any]):
     result = predict_risk(data)
-    return AnalysisResult(**result)
+    return result
